@@ -13,6 +13,6 @@ func main() {
 }
 
 func run() error {
-	fmt.Print("Let's Go!")
+	fmt.Print("Let's Go!!")
 	return nil
 }
