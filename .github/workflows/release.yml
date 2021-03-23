@@ -31,14 +31,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Release
+      - name: Create Release
         id: create_release
-        uses: softprops/action-gh-release@v1
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Echo
-        run: echo ${{ steps.create_release.outputs.url }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
 
   build:
     runs-on: ubuntu-latest
